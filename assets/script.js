@@ -3,7 +3,7 @@ var searchFormEl = document.querySelector("#search-form");
 var searchResults = document.getElementById("#dynamic-results");
 
 // DATA
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("", function () {
   const searchForm = document.getElementById("search-form");
   const serachInput = document.getElementById("search-input");
   const resultsContainer = document.getElementById("dynamic-results");
