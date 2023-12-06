@@ -30,8 +30,12 @@ function getLocApi() {
 
       return response.json();
     })
-    .then(function (data2) {
-      console.log(data2);
+    .then(function (locData) {
+      console.log(locData);
+
+      if (!locData.results.length) {
+        console.log("No results found.");
+      } else
     });
 }
 
