@@ -2,6 +2,8 @@
 var searchFormEl = document.querySelector("#search-form");
 var searchResults = document.getElementById("dynamic-results");
 var searchInput = document.getElementById("search-input");
+var savedBooksContainer = document.getElementById("saved-books-container");
+var savedBookList = document.getElementById("saved-book-list");
 
 // DATA
 
@@ -34,20 +36,18 @@ function getGoogleApi() {
   urlTerm = searchTerm.join("+");
   console.log(searchTerm);
   console.log(urlTerm);
-  var requestUrl = 'https://www.googleapis.com/books/v1/volumes?q=' + searchTerm;
+  var requestUrl =
+    "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm;
   fetch(requestUrl)
-    .then( function (response) {
+    .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data);
-    })
-
+    });
 }
 
 // USER INPUT
 searchFormEl.addEventListener("submit", formSubmitHandler);
 
 // INITIALIZATION
-
-
