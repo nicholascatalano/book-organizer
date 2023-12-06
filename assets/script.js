@@ -26,8 +26,8 @@ function getLocApi() {
     .then(function (response) {
       return response.json();
     })
-    .then(function (data) {
-      console.log(data);
+    .then(function (data2) {
+      console.log(data2);
     });
 }
 
