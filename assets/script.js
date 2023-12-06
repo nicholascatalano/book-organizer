@@ -16,10 +16,13 @@ function formSubmitHandler(event) {
 }
 
 function getLocApi() {
+  // variable to hold LOC query url
   var locQueryUrl = "https://www.loc.gov/books/?fo=json";
+  // splits and joins the search input using the correct format
   searchTerm = searchInput.value.split(" ");
   urlTerm = searchTerm.join("+");
 
+  // redefines the LOC query url to combine with the search query
   locQueryUrl = locQueryUrl + "&q=" + urlTerm;
 
   fetch(locQueryUrl)
