@@ -25,6 +25,7 @@ function getLocApi() {
   // redefines the LOC query url to combine with the search query
   locQueryUrl = locQueryUrl + "&q=" + urlTerm;
 
+  // fetch API using the LOC query url
   fetch(locQueryUrl)
     .then(function (response) {
       if (!response.ok) {
@@ -33,12 +34,15 @@ function getLocApi() {
 
       return response.json();
     })
+    // stores the data in locData
     .then(function (locData) {
       console.log(locData);
 
+      // if there is no data in the results section of the data array, return
       if (!locData.results.length) {
         console.log("No results found.");
       } else searchResults.textContent = "";
+      // else print the results to the page using the printLocResults() function;
       for (var i = 0; i < locData.results.length; i++) {
         printLocResults(locData.results[i]);
       }
