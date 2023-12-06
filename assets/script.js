@@ -9,10 +9,10 @@ var searchInput = document.getElementById("search-input");
 function formSubmitHandler(event) {
   event.preventDefault();
   console.log("You clicked a button!");
-  getApi();
+  getGoogleApi();
 }
 
-function getApi() {
+function getGoogleApi() {
   searchTerm = searchInput.value.split(" ");
   urlTerm = searchTerm.join("+");
   console.log(searchTerm);
