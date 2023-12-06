@@ -6,13 +6,22 @@ var savedBooksContainer = document.getElementById("saved-books-container");
 var savedBookList = document.getElementById("saved-book-list");
 
 // DATA
+var globalLocData = {};
 
 // FUNCTIONS
 function formSubmitHandler(event) {
   event.preventDefault();
   console.log("You clicked a button!");
-  getGoogleApi();
+
+  if (!searchInput) {
+    console.error("You need a search input value!");
+    return;
+  }
   getLocApi();
+  getGoogleApi();
+  if (data.results.length) {
+    console.log("No results found!");
+  }
 }
 
 function getLocApi() {
@@ -26,8 +35,8 @@ function getLocApi() {
     .then(function (response) {
       return response.json();
     })
-    .then(function (data2) {
-      console.log(data2);
+    .then(function (data) {
+      console.log(data);
     });
 }
 
@@ -42,8 +51,8 @@ function getGoogleApi() {
     .then(function (response) {
       return response.json();
     })
-    .then(function (data) {
-      console.log(data);
+    .then(function (data2) {
+      console.log(data2);
     });
 }
 
