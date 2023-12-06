@@ -35,7 +35,8 @@ function getLocApi() {
 
       if (!locData.results.length) {
         console.log("No results found.");
-      } else
+      } else searchResults.textContent = '';
+      
     });
 }
 
