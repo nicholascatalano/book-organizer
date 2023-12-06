@@ -17,11 +17,21 @@ function formSubmitHandler(event) {
     console.error("You need a search input value!");
     return;
   }
+
+  getApi();
   getLocApi();
   getGoogleApi();
   if (data.results.length) {
     console.log("No results found!");
   }
+}
+
+function getApi(query) {
+  var locQueryUrl = "https://www.loc.gov/books/?fo=json";
+  var requestUrl =
+    "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm;
+  searchTerm = searchInput.value.split(" ");
+  urlTerm = searchTerm.join("+");
 }
 
 function getLocApi() {
