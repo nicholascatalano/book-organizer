@@ -35,8 +35,10 @@ function getLocApi() {
 
       if (!locData.results.length) {
         console.log("No results found.");
-      } else searchResults.textContent = '';
-      
+      } else searchResults.textContent = "";
+      for (var i = 0; i < locData.results.length; i++) {
+        printLocResults(locData.results[i]);
+      }
     });
 }
 
@@ -56,7 +58,9 @@ function getGoogleApi() {
     });
 }
 
-function printLocResults() {}
+function printLocResults() {
+  searchResults.textContent = "PRINTED!";
+}
 
 // USER INPUT
 searchFormEl.addEventListener("submit", formSubmitHandler);
