@@ -10,6 +10,23 @@ function formSubmitHandler(event) {
   event.preventDefault();
   console.log("You clicked a button!");
   getGoogleApi();
+  getLocApi();
+}
+
+function getLocApi() {
+  var locQueryUrl = "https://www.loc.gov/books/?fo=json";
+  searchTerm = searchInput.value.split(" ");
+  urlTerm = searchTerm.join("+");
+
+  locQueryUrl = locQueryUrl + "&q=" + urlTerm;
+
+  fetch(locQueryUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    });
 }
 
 function getGoogleApi() {
