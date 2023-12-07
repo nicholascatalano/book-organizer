@@ -67,7 +67,8 @@ function getGoogleApi() {
         console.log("No results found.");
       } else {
         printGoogleResults(googleData);
-    }});
+      }
+    });
 }
 
 function printGoogleResults(googleData) {
@@ -83,6 +84,7 @@ function printGoogleResults(googleData) {
   var googlePageLink = document.createElement("a");
   googlePageLink.textContent = googleTitle;
   googlePageLink.setAttribute("href", googleLink);
+
   
   googleResults.innerHTML = "";
 
@@ -110,6 +112,7 @@ function printGoogleResults(googleData) {
     localStorage.setItem("savedBooks", JSON.stringify(savedBooks));
   }
   renderBookList();
+
 }
 
 function printLocResults(locData) {
@@ -125,7 +128,7 @@ function printLocResults(locData) {
   locInfoCard.append(locInfoBody);
 
   // variable to hold title of LOC result
-  var locTitleEl = document.createElement("h3");
+  var locTitleEl = document.createElement("h5");
   locTitleEl.textContent = locData.title;
 
   // variable to hold body content of loc results

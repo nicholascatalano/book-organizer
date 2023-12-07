@@ -13,37 +13,51 @@
     <title>Book Organizer</title>
   </head>
   <body>
-    <header class="bg-dark">
+    <header class="bg-dark mb-2">
       <h1 class="header">Book Research and Organizer</h1>
     </header>
     <!-- main content container -->
-    <main class="main-container">
-      <!-- submit container -->
-      <section class="feature-container main" id="submit-container">
-        <h3>Search Here:</h3>
-        <form id="search-form">
-          <input id="search-input" type="text" />
-          <button type="submit" class="btn btn-primary" id="submit-button">
-            Submit
-          </button>
-        </form>
-      </section>
-      <section class="feature-container" id="google-results-container">
-        <h3>Google Results:</h3>
-        <div id="dynamic-google-results"></div>
-      </section>
-      <!-- results container -->
-      <section class="feature-container" id="results-container">
-        <h3>Search Results</h3>
-        <div id="dynamic-results"></div>
-      </section>
-      <!-- saved books container -->
-      <section class="feature-container" id="saved-books-container">
-        <h3>Saved Books</h3>
-        <div class="row">
-          <div class="col-12" id="saved-book-list"></div>
+    <main class="main-container p-2">
+      <div class="row">
+        <div class="col col-lg-4">
+          <!-- submit container -->
+          <section
+            class="feature-container main d-flex flex-column"
+            id="submit-container"
+          >
+            <h4 class="border-bottom border-4 border-light">Search</h4>
+            <form id="search-form">
+              <input id="search-input" type="text" />
+              <button type="submit" class="btn btn-primary" id="submit-button">
+                Submit
+              </button>
+            </form>
+          </section>
+          <!-- google results container -->
+          <section class="feature-container" id="google-results-container">
+            <h4 class="border-bottom border-4 border-light">
+              Purchase Results
+            </h4>
+            <div id="dynamic-google-results"></div>
+          </section>
+          <!-- saved books container -->
+          <section class="feature-container" id="saved-books-container">
+            <h4 class="border-bottom border-4 border-light">Saved books</h4>
+            <div class="row">
+              <div id="saved-book-list"></div>
+            </div>
+          </section>
         </div>
-      </section>
+        <!-- LOC results container -->
+        <div class="col col-lg-8">
+          <section class="feature-container" id="results-container">
+            <h4 class="text-center border-bottom border-4 border-light">
+              Search Results
+            </h4>
+            <div id="dynamic-results"></div>
+          </section>
+        </div>
+      </div>
     </main>
     <script src="https://apis.google.com/js/api.js"></script>
     <script
