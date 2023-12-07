@@ -43,7 +43,7 @@ function getLocApi() {
         console.log("No results found.");
       } else searchResults.textContent = "";
       // else print the results to the page using the printLocResults() function;
-      for (var i = 0; i < locData.results.length; i++) {
+      for (var i = 0; i < 8; i++) {
         printLocResults(locData.results[i]);
       }
     });
