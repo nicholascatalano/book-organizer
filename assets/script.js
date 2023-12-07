@@ -65,7 +65,8 @@ function getGoogleApi() {
     });
 }
 
-function printLocResults() {
+function printLocResults(locData) {
+  console.log(locData);
   searchResults.textContent = "PRINTED!";
 }
 
