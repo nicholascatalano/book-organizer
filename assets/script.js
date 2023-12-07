@@ -76,7 +76,6 @@ function getGoogleApi() {
 
 function printGoogleResults(googleData) {
   console.log(googleData);
-  
 }
 
 function printLocResults(locData) {
@@ -98,8 +97,14 @@ function printLocResults(locData) {
 
   // variable to hold body content of loc results
   var locBodyInfoEl = document.createElement("p");
-  locBodyInfoEl.innerHTML =
-    "<strong>Description:</strong> " + locData.description[0] + "<br/>";
+
+  // if statement to check if there is a value in the description of a result
+  if (locData.description) {
+    locBodyInfoEl.innerHTML =
+      "<strong>Description:</strong> " + locData.description[0] + "<br/>";
+  } else {
+    "<strong>Description:</strong> No description for this result.";
+  }
 }
 
 // USER INPUT
