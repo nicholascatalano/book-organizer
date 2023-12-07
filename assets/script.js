@@ -1,6 +1,7 @@
 // DEPENDENCIES
 var searchFormEl = document.querySelector("#search-form");
 var searchResults = document.getElementById("dynamic-results");
+var googleResults = document.getElementById("dynamic-google-results");
 var searchInput = document.getElementById("search-input");
 var savedBooksContainer = document.getElementById("saved-books-container");
 var savedBookList = document.getElementById("saved-book-list");
@@ -65,14 +66,27 @@ function getGoogleApi() {
       if (!googleData.items.length) {
         console.log("No results found.");
       } else {
-        printGoogleResults(googleData.items[0].volumeInfo.title);
-        printGoogleResults(googleData.items[0].volumeInfo.previewLink);
-      }
-    });
+        printGoogleResults(googleData);
+    }});
 }
 
 function printGoogleResults(googleData) {
   console.log(googleData);
+  var googleTitle = googleData.items[0].volumeInfo.title;
+  var googleLink = googleData.items[0].volumeInfo.previewLink;
+  console.log(googleTitle);
+  console.log(googleLink);
+
+  var googleInfoCard = document.createElement("div");
+  googleInfoCard.classList.add("mb-2", "p-2", "text-dark", "bg-light", "card");
+
+  var googlePageLink = document.createElement("a");
+  googlePageLink.textContent = googleTitle;
+  googlePageLink.setAttribute("href", googleLink);
+  
+  googleInfoCard.append(googlePageLink);
+  googleResults.append(googleInfoCard);
+
 }
 
 function printLocResults(locData) {
