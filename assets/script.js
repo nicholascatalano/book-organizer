@@ -111,6 +111,9 @@ function printLocResults(locData) {
   locButtonEl.textContent = "Read More";
   locButtonEl.setAttribute("href", locData.url);
   locButtonEl.classList.add("btn", "btn-dark");
+
+  locInfoBody.append(locTitleEl, locBodyInfoEl, locButtonEl);
+  
 }
 
 // USER INPUT
