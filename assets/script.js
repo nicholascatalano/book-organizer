@@ -43,7 +43,7 @@ function getLocApi() {
         console.log("No results found.");
       } else searchResults.textContent = "";
       // else print the results to the page using the printLocResults() function;
-      for (var i = 0; i < locData.results.length; i++) {
+      for (var i = 0; i < 8; i++) {
         printLocResults(locData.results[i]);
       }
     });
@@ -52,37 +52,67 @@ function getLocApi() {
 function getGoogleApi() {
   searchTerm = searchInput.value.split(" ");
   urlTerm = searchTerm.join("+");
-  console.log(searchTerm);
-  console.log(urlTerm);
   var requestUrl =
     "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm;
   fetch(requestUrl)
     .then(function (response) {
-     if (!response.ok) {
-      throw response.json()
-     }
-     return response.json()
+      if (!response.ok) {
+        throw response.json();
+      }
+      return response.json();
     })
-    .then(function(googleData) {
-      console.log(googleData);
+    .then(function (googleData) {
       if (!googleData.items.length) {
-        console.log("No results found.")
-      } else searchResults.textContent = "";
-      for (var i = 0; i < googleData.items.length; i++) {
-        console.log(googleData.items[i].volumeInfo.title);
-        console.log(googleData.items[i].volumeInfo.previewLink);
-      };
+        console.log("No results found.");
+      } else {
+        printGoogleResults(googleData.items[0].volumeInfo.title);
+        printGoogleResults(googleData.items[0].volumeInfo.previewLink);
+      }
     });
-};
+}
 
 function printGoogleResults(googleData) {
   console.log(googleData);
 }
 
-
 function printLocResults(locData) {
   console.log(locData);
-  searchResults.textContent = "PRINTED!";
+
+  // variable to hold card which will house LOC results info
+  var locInfoCard = document.createElement("div");
+  locInfoCard.classList.add("mb-2", "p-2", "text-dark", "bg-light", "card");
+
+  // variable to hold body of the LOC results info
+  var locInfoBody = document.createElement("div");
+  locInfoBody.classList.add("card-body");
+  locInfoCard.append(locInfoBody);
+
+  // variable to hold title of LOC result
+  var locTitleEl = document.createElement("h3");
+  locTitleEl.textContent = locData.title;
+
+  // variable to hold body content of loc results
+  var locBodyInfoEl = document.createElement("p");
+
+  // if statement to check if there is a value in the description of a result
+  if (locData.description) {
+    locBodyInfoEl.innerHTML =
+      "<strong>Description:</strong> " + locData.description[0] + "<br/>";
+  } else {
+    ("<strong>Description:</strong> No description for this result.");
+  }
+
+  // button variable that redirects to LOC result
+  var locButtonEl = document.createElement("a");
+  locButtonEl.textContent = "Read More";
+  locButtonEl.setAttribute("href", locData.url);
+  locButtonEl.classList.add("btn", "btn-dark");
+
+  // appends title, body info (description), and read more button to body of card
+  locInfoBody.append(locTitleEl, locBodyInfoEl, locButtonEl);
+
+  // appends LOC info card to search results container
+  searchResults.append(locInfoCard);
 }
 
 // USER INPUT
