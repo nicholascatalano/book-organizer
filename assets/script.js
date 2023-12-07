@@ -110,7 +110,6 @@ function printGoogleResults(googleData) {
     localStorage.setItem("savedBooks", JSON.stringify(savedBooks));
   }
   renderBookList();
-  
 }
 
 // function printLocResults(locData) {
@@ -171,10 +170,8 @@ function init() {
   renderBookList();
 }
 
-
-
-
 // USER INPUT
 searchFormEl.addEventListener("submit", formSubmitHandler);
 
 // INITIALIZATION
+init();
