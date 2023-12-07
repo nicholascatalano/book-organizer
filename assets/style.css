@@ -18,3 +18,15 @@ header {
   margin-right: 160px;
   padding: 50px;
 }
+
+#saved-books-container {
+  margin-top: 100px;
+}
+
+#saved-book-list {
+  border: 1px solid #070707;
+  padding: 20px;
+  height: 150px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
