@@ -81,8 +81,6 @@ function printLocResults(locData) {
   // variable to hold title of LOC result
   var locTitleEl = document.createElement("h3");
   locTitleEl.textContent = locData.title;
-
-
 }
 
 // USER INPUT
