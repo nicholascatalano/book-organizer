@@ -69,14 +69,14 @@ function getGoogleApi() {
         console.log("No results found.")
       } else searchResults.textContent = "";
       for (var i = 0; i < googleData.items.length; i++) {
-        printGoogleResults(googleData.items[0].volumeInfo.previewLink);
+        console.log(googleData.items[i].volumeInfo.title);
+        console.log(googleData.items[i].volumeInfo.previewLink);
       };
     });
 };
 
 function printGoogleResults(googleData) {
   console.log(googleData);
-  
 }
 
 
