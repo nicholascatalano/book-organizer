@@ -77,6 +77,10 @@ function printLocResults(locData) {
   var locInfoBody = document.createElement("div");
   locInfoBody.classList.add("card-body");
   locInfoCard.append(locInfoBody);
+
+  // variable to hold title of LOC result
+  var locTitle = document.createElement("h3");
+  locTitle.textContent = locData.title;
 }
 
 // USER INPUT
