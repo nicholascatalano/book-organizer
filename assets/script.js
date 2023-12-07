@@ -37,13 +37,27 @@ function getGoogleApi() {
   var requestUrl = 'https://www.googleapis.com/books/v1/volumes?q=' + searchTerm;
   fetch(requestUrl)
     .then( function (response) {
-      return response.json();
+     if (!response.ok) {
+      throw response.json()
+     }
+     return response.json()
     })
-    .then(function (data) {
-      console.log(data);
-    })
+    .then(function(googleData) {
+      console.log(googleData);
+      if (!googleData.results.length) {
+        console.log("No results found.")
+      } else searchResults.textContent = "";
+      for (var i = 0; i < googleData.results.length; i++) {
+        printGoogleResults(googleData.results[i]);
+      };
+    });
+};
 
+function printGoogleResults(googleData) {
+  console.log(googleData);
+  searchResults.textContent = "PRINTED!";
 }
+
 
 // USER INPUT
 searchFormEl.addEventListener("submit", formSubmitHandler);
