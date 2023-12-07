@@ -68,6 +68,9 @@ function getGoogleApi() {
 function printLocResults(locData) {
   console.log(locData);
   searchResults.textContent = "PRINTED!";
+
+  var locInfoCard = document.createElement("div");
+  locInfoCard.classList.add("mb-2", "p-2", "text-dark", "bg-light", "card");
 }
 
 // USER INPUT
