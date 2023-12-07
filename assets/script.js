@@ -103,8 +103,14 @@ function printLocResults(locData) {
     locBodyInfoEl.innerHTML =
       "<strong>Description:</strong> " + locData.description[0] + "<br/>";
   } else {
-    "<strong>Description:</strong> No description for this result.";
+    ("<strong>Description:</strong> No description for this result.");
   }
+
+  // button variable that redirects to LOC result
+  var locButtonEl = document.createElement("a");
+  locButtonEl.textContent = "Read More";
+  locButtonEl.setAttribute("href", locData.url);
+  locButtonEl.classList.add("btn", "btn-dark");
 }
 
 // USER INPUT
