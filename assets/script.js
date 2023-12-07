@@ -65,18 +65,18 @@ function getGoogleApi() {
     })
     .then(function (googleData) {
       console.log(googleData);
-      if (!googleData.results.length) {
+      if (!googleData.items.length) {
         console.log("No results found.");
       } else searchResults.textContent = "";
-      for (var i = 0; i < googleData.results.length; i++) {
-        printGoogleResults(googleData.results[i]);
+      for (var i = 0; i < googleData.items.length; i++) {
+        printGoogleResults(googleData.items[i].volumeInfo.previewLink);
       }
     });
 }
 
 function printGoogleResults(googleData) {
   console.log(googleData);
-  searchResults.textContent = "PRINTED!";
+  
 }
 
 function printLocResults(locData) {
