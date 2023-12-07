@@ -52,8 +52,6 @@ function getLocApi() {
 function getGoogleApi() {
   searchTerm = searchInput.value.split(" ");
   urlTerm = searchTerm.join("+");
-  console.log(searchTerm);
-  console.log(urlTerm);
   var requestUrl =
     "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm;
   fetch(requestUrl)
@@ -64,13 +62,11 @@ function getGoogleApi() {
      return response.json()
     })
     .then(function(googleData) {
-      console.log(googleData);
       if (!googleData.items.length) {
         console.log("No results found.")
-      } else searchResults.textContent = "";
-      for (var i = 0; i < googleData.items.length; i++) {
-        console.log(googleData.items[i].volumeInfo.title);
-        console.log(googleData.items[i].volumeInfo.previewLink);
+      } else {
+        printGoogleResults(googleData.items[0].volumeInfo.title);
+        printGoogleResults(googleData.items[0].volumeInfo.previewLink);
       };
     });
 };
@@ -78,7 +74,6 @@ function getGoogleApi() {
 function printGoogleResults(googleData) {
   console.log(googleData);
 }
-
 
 function printLocResults(locData) {
   console.log(locData);
