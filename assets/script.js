@@ -58,27 +58,26 @@ function getGoogleApi() {
     "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm;
   fetch(requestUrl)
     .then(function (response) {
-     if (!response.ok) {
-      throw response.json()
-     }
-     return response.json()
+      if (!response.ok) {
+        throw response.json();
+      }
+      return response.json();
     })
-    .then(function(googleData) {
+    .then(function (googleData) {
       console.log(googleData);
       if (!googleData.results.length) {
-        console.log("No results found.")
+        console.log("No results found.");
       } else searchResults.textContent = "";
       for (var i = 0; i < googleData.results.length; i++) {
         printGoogleResults(googleData.results[i]);
-      };
+      }
     });
-};
+}
 
 function printGoogleResults(googleData) {
   console.log(googleData);
   searchResults.textContent = "PRINTED!";
 }
-
 
 function printLocResults(locData) {
   console.log(locData);
@@ -96,6 +95,11 @@ function printLocResults(locData) {
   // variable to hold title of LOC result
   var locTitleEl = document.createElement("h3");
   locTitleEl.textContent = locData.title;
+
+  // variable to hold body content of loc results
+  var locBodyInfoEl = document.createElement("p");
+  locBodyInfoEl.innerHTML =
+    "<strong>Description:</strong> " + locData.description[0] + "<br/>";
 }
 
 // USER INPUT
