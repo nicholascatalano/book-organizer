@@ -5,7 +5,7 @@ var googleResults = document.getElementById("dynamic-google-results");
 var searchInput = document.getElementById("search-input");
 var savedBooksContainer = document.getElementById("saved-books-container");
 var savedBookList = document.getElementById("saved-book-list");
-
+var savedBooks = [];
 // DATA
 
 // FUNCTIONS
@@ -85,8 +85,34 @@ function printGoogleResults(googleData) {
   googlePageLink.textContent = googleTitle;
   googlePageLink.setAttribute("href", googleLink);
 
+  
+  googleResults.innerHTML = "";
+
   googleInfoCard.append(googlePageLink);
   googleResults.append(googleInfoCard);
+
+  var saveBookBtn = document.createElement("button");
+  googleResults.appendChild(saveBookBtn);
+
+  saveBookBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    storeBooks();
+  }) 
+  function storeBooks() {
+    // check to see if "savedBooks" is in localStorage
+    if (localStorage.getItem("savedBooks")) {
+      savedBooks = JSON.parse(localStorage.getItem("savedBooks"))
+        } else {
+          savedBooks = [];
+        }
+    savedBooks.push({
+      googleTitle,
+      googleLink
+    });
+    localStorage.setItem("savedBooks", JSON.stringify(savedBooks));
+  }
+  renderBookList();
+
 }
 
 function printLocResults(locData) {
@@ -129,7 +155,26 @@ function printLocResults(locData) {
   searchResults.append(locInfoCard);
 }
 
+function renderBookList() {
+  savedBookList.innerHTML = "";
+  for (var i = 0; i < savedBooksContainer.length; i++) {
+    var savedBook = savedBooks[i];
+    var li = document.createElement("li");
+    li.textContent = savedBook;
+    li.setAttribute("data-index", i);
+    var deleteBookBtn = document.createElement("button");
+    deleteBookBtn.textContent = "Clear Book From List";
+    li.appendChild(deleteBookBtn);
+    savedBookList.appendChild(li);
+  }
+}
+
+function init() {
+  renderBookList();
+}
+
 // USER INPUT
 searchFormEl.addEventListener("submit", formSubmitHandler);
 
 // INITIALIZATION
+init();
