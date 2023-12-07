@@ -16,18 +16,36 @@ function formSubmitHandler(event) {
 }
 
 function getLocApi() {
+  // variable to hold LOC query url
   var locQueryUrl = "https://www.loc.gov/books/?fo=json";
+  // splits and joins the search input using the correct format
   searchTerm = searchInput.value.split(" ");
   urlTerm = searchTerm.join("+");
 
+  // redefines the LOC query url to combine with the search query
   locQueryUrl = locQueryUrl + "&q=" + urlTerm;
 
+  // fetch API using the LOC query url
   fetch(locQueryUrl)
     .then(function (response) {
+      if (!response.ok) {
+        throw response.json();
+      }
+
       return response.json();
     })
-    .then(function (data) {
-      console.log(data);
+    // stores the data in locData
+    .then(function (locData) {
+      console.log(locData);
+
+      // if there is no data in the results section of the data array, return
+      if (!locData.results.length) {
+        console.log("No results found.");
+      } else searchResults.textContent = "";
+      // else print the results to the page using the printLocResults() function;
+      for (var i = 0; i < locData.results.length; i++) {
+        printLocResults(locData.results[i]);
+      }
     });
 }
 
@@ -45,6 +63,11 @@ function getGoogleApi() {
     .then(function (data) {
       console.log(data);
     });
+}
+
+function printLocResults(locData) {
+  console.log(locData);
+  searchResults.textContent = "PRINTED!";
 }
 
 // USER INPUT
