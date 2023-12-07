@@ -69,8 +69,14 @@ function printLocResults(locData) {
   console.log(locData);
   searchResults.textContent = "PRINTED!";
 
+  // variable to hold card which will house LOC results info
   var locInfoCard = document.createElement("div");
   locInfoCard.classList.add("mb-2", "p-2", "text-dark", "bg-light", "card");
+
+  // variable to hold body of the LOC results info
+  var locInfoBody = document.createElement("div");
+  locInfoBody.classList.add("card-body");
+  locInfoCard.append(locInfoBody);
 }
 
 // USER INPUT
