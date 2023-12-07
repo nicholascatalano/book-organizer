@@ -80,7 +80,6 @@ function printGoogleResults(googleData) {
 
 function printLocResults(locData) {
   console.log(locData);
-  searchResults.textContent = "PRINTED!";
 
   // variable to hold card which will house LOC results info
   var locInfoCard = document.createElement("div");
@@ -112,8 +111,11 @@ function printLocResults(locData) {
   locButtonEl.setAttribute("href", locData.url);
   locButtonEl.classList.add("btn", "btn-dark");
 
+  // appends title, body info (description), and read more button to body of card
   locInfoBody.append(locTitleEl, locBodyInfoEl, locButtonEl);
-  
+
+  // appends LOC info card to search results container
+  searchResults.append(locInfoCard);
 }
 
 // USER INPUT
