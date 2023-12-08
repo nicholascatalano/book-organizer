@@ -93,15 +93,16 @@ function printGoogleResults(googleData) {
 
   var saveBookBtn = document.createElement("button");
   googleInfoCard.appendChild(saveBookBtn);
+  saveBookBtn.classList.add("saved-button");
 
   saveBookBtn.addEventListener("click", function (event) {
     event.preventDefault();
     storeBooks();
-    renderBookList()
+    renderBookList();
   });
   function storeBooks() {
     // check to see if "savedBooks" is in localStorage
-    savedBooks = getSavedBooks()
+    savedBooks = getSavedBooks();
     savedBooks.push({
       googleTitle,
       googleLink,
@@ -170,8 +171,8 @@ function renderBookList() {
     link.setAttribute("href", savedBook.googleLink);
     li.setAttribute("data-index", i);
     var deleteBookBtn = document.createElement("button");
-    deleteBookBtn.textContent = "Clear Book From List";
-    deleteBookBtn.addEventListener("click", function(event) {
+    deleteBookBtn.textContent = "🗑️";
+    deleteBookBtn.addEventListener("click", function (event) {
       event.preventDefault();
       var element = event.target;
       if (element.matches("button") === true) {
@@ -180,7 +181,7 @@ function renderBookList() {
         localStorage.setItem("savedBooks", JSON.stringify(savedBooks));
         renderBookList();
       }
-    }) 
+    });
     li.appendChild(link);
     li.appendChild(deleteBookBtn);
     savedBookList.appendChild(li);
