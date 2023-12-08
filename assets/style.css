@@ -58,3 +58,13 @@ textarea {
 #submit-button:hover {
   background-color: #606c38;
 }
+
+.dynamic-card.card {
+  border: 1px solid #283618;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.dynamic-card.card-body {
+  padding: 10px;
+}
