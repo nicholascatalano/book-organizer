@@ -101,3 +101,7 @@ textarea {
 .dynamic-card a.btn-dark:hover {
   background-color: #606c38;
 }
+
+.row {
+  margin: 0;
+}
