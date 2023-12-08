@@ -9,11 +9,17 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
     <title>Book Organizer</title>
   </head>
   <body>
-    <header class="bg-dark mb-2">
+    <header class="mb-2">
       <h1 class="header">Book Research and Organizer</h1>
     </header>
     <!-- main content container -->
@@ -21,28 +27,27 @@
       <div class="row">
         <div class="col col-lg-4">
           <!-- submit container -->
-          <section
-            class="feature-container main d-flex flex-column"
-            id="submit-container"
-          >
-            <h4 class="border-bottom border-4 border-light">Search</h4>
+          <section class="feature-container main d-flex" id="submit-container">
+            <h4 class="">Search:</h4>
             <form id="search-form">
               <input id="search-input" type="text" />
-              <button type="submit" class="btn btn-primary" id="submit-button">
+              <button
+                type="submit"
+                class="btn btn-light btn-sm"
+                id="submit-button"
+              >
                 Submit
               </button>
             </form>
           </section>
           <!-- google results container -->
           <section class="feature-container" id="google-results-container">
-            <h4 class="border-bottom border-4 border-light">
-              Purchase Results
-            </h4>
+            <h4 class="">Purchase Results</h4>
             <div id="dynamic-google-results"></div>
           </section>
           <!-- saved books container -->
           <section class="feature-container" id="saved-books-container">
-            <h4 class="border-bottom border-4 border-light">Saved books</h4>
+            <h4 class="">Saved books</h4>
             <div class="row">
               <div id="saved-book-list"></div>
             </div>
@@ -51,9 +56,7 @@
         <!-- LOC results container -->
         <div class="col col-lg-8">
           <section class="feature-container" id="results-container">
-            <h4 class="text-center border-bottom border-4 border-light">
-              Search Results
-            </h4>
+            <h4 class="text-center">Search Results</h4>
             <div id="dynamic-results"></div>
           </section>
         </div>

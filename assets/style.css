@@ -1,15 +1,32 @@
 * {
   box-sizing: border-box;
+  font-family: "Libre Baskerville", serif;
+}
+
+body {
+  background-color: #fefae0;
+}
+
+section {
+  background-color: #606c38;
+  padding: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+#results-container {
 }
 
 header {
-  background-color: black;
-  color: white;
+  background-color: #283618;
+  color: #fefae0;
   padding: 30px;
   text-align: center;
   width: 100%;
 }
 
+h4 {
+}
 /* #submit-container {
   width: 100%;
   max-width: 400px;
