@@ -79,13 +79,12 @@ function printGoogleResults(googleData) {
   console.log(googleLink);
 
   var googleInfoCard = document.createElement("div");
-  googleInfoCard.classList.add("mb-2", "p-2", "text-dark", "bg-light", "card");
+  googleInfoCard.classList.add("mb-2", "p-2", "dynamic-card", "card");
 
   var googlePageLink = document.createElement("a");
   googlePageLink.textContent = googleTitle;
   googlePageLink.setAttribute("href", googleLink);
 
-  
   googleResults.innerHTML = "";
 
   googleInfoCard.append(googlePageLink);
@@ -94,25 +93,24 @@ function printGoogleResults(googleData) {
   var saveBookBtn = document.createElement("button");
   googleResults.appendChild(saveBookBtn);
 
-  saveBookBtn.addEventListener("click", function(event) {
+  saveBookBtn.addEventListener("click", function (event) {
     event.preventDefault();
     storeBooks();
-  }) 
+  });
   function storeBooks() {
     // check to see if "savedBooks" is in localStorage
     if (localStorage.getItem("savedBooks")) {
-      savedBooks = JSON.parse(localStorage.getItem("savedBooks"))
-        } else {
-          savedBooks = [];
-        }
+      savedBooks = JSON.parse(localStorage.getItem("savedBooks"));
+    } else {
+      savedBooks = [];
+    }
     savedBooks.push({
       googleTitle,
-      googleLink
+      googleLink,
     });
     localStorage.setItem("savedBooks", JSON.stringify(savedBooks));
   }
   renderBookList();
-
 }
 
 function printLocResults(locData) {
@@ -120,7 +118,7 @@ function printLocResults(locData) {
 
   // variable to hold card which will house LOC results info
   var locInfoCard = document.createElement("div");
-  locInfoCard.classList.add("mb-2", "p-2", "text-dark", "bg-light", "card");
+  locInfoCard.classList.add("mb-2", "mx-2", "p-2", "dynamic-card", "card");
 
   // variable to hold body of the LOC results info
   var locInfoBody = document.createElement("div");
