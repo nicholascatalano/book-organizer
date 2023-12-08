@@ -92,8 +92,9 @@ function printGoogleResults(googleData) {
   googleResults.append(googleInfoCard);
 
   var saveBookBtn = document.createElement("button");
-  googleInfoCard.appendChild(saveBookBtn);
   saveBookBtn.classList.add("saved-button");
+  saveBookBtn.textContent = "Save";
+  googleInfoCard.appendChild(saveBookBtn);
 
   saveBookBtn.addEventListener("click", function (event) {
     event.preventDefault();
@@ -172,6 +173,7 @@ function renderBookList() {
     li.setAttribute("data-index", i);
     var deleteBookBtn = document.createElement("button");
     deleteBookBtn.textContent = "🗑️";
+    deleteBookBtn.classList.add("delete-button");
     deleteBookBtn.addEventListener("click", function (event) {
       event.preventDefault();
       var element = event.target;

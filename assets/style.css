@@ -94,6 +94,11 @@ textarea {
   background-color: #606c38;
 }
 
+.delete-button {
+  float: inline-end;
+  margin: 2px 0px 2px 0px;
+}
+
 .saved-button {
   background-color: #283618;
   color: #fefae0;
@@ -101,8 +106,14 @@ textarea {
   border-radius: 3px;
   cursor: pointer;
   padding: 5px 10px;
+  font-size: 90%;
 }
 
 .saved-button:hover {
   background-color: #606c38;
+}
+
+#saved-book-list {
+  display: flex;
+  flex-direction: column;
 }
