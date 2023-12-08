@@ -79,7 +79,7 @@ function printGoogleResults(googleData) {
   console.log(googleLink);
 
   var googleInfoCard = document.createElement("div");
-  googleInfoCard.classList.add("mb-2", "p-2", "text-dark", "bg-light", "card");
+  googleInfoCard.classList.add("mb-2", "p-2", "dynamic-card", "card");
 
   var googlePageLink = document.createElement("a");
   googlePageLink.textContent = googleTitle;
