@@ -39,3 +39,9 @@ textarea {
 #saved-books-container {
   margin-top: 100px;
 }
+
+button.btn-light {
+  background-color: #fefae0;
+  color: #606c38;
+  border: 1px solid #606c38;
+}
