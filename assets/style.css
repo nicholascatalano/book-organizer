@@ -65,3 +65,15 @@ textarea {
 .feature-container {
   margin-bottom: 20px;
 }
+
+#google-results-container {
+  background-color: #fefae0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#saved-books-container {
+  background-color: #fefae0;
+  padding: 10px;
+  border-radius: 5px;
+}
