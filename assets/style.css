@@ -31,11 +31,6 @@ textarea {
   background-color: #fefae0;
 }
 
-.dynamic-card {
-  background-color: #fefae0;
-  font-size: 90%;
-}
-
 #saved-books-container {
   margin-top: 100px;
 }
@@ -59,12 +54,10 @@ textarea {
   background-color: #606c38;
 }
 
-.dynamic-card.card {
-  border: 1px solid #283618;
+.dynamic-card {
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px 0px;
   border-radius: 5px;
-  overflow: hidden;
-}
-
-.dynamic-card.card-body {
-  padding: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
 }
