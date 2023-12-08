@@ -92,8 +92,9 @@ function printGoogleResults(googleData) {
   googleResults.append(googleInfoCard);
 
   var saveBookBtn = document.createElement("button");
-  googleInfoCard.appendChild(saveBookBtn);
   saveBookBtn.classList.add("saved-button");
+  saveBookBtn.textContent = "Save";
+  googleInfoCard.appendChild(saveBookBtn);
 
   saveBookBtn.addEventListener("click", function (event) {
     event.preventDefault();
