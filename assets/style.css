@@ -35,6 +35,10 @@ textarea {
   margin-top: 100px;
 }
 
+#submit-container {
+  margin-bottom: 20px;
+}
+
 #search-input {
   padding: 8px;
   margin-right: 8px;
@@ -78,6 +82,12 @@ textarea {
   border-radius: 5px;
 }
 
+#results-container {
+  background-color: #fefae0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 .dynamic-card a.btn-dark {
   background-color: #283618;
   color: #fefae0;
@@ -86,8 +96,4 @@ textarea {
   padding: 5px 10px;
   text-decoration: none;
   display: inline-block;
-}
-
-.dynamic-card a.btn-dark:hover {
-  background-color: #606c38;
 }
