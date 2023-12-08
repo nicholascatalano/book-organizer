@@ -6,7 +6,6 @@ var searchInput = document.getElementById("search-input");
 var savedBooksContainer = document.getElementById("saved-books-container");
 var savedBookList = document.getElementById("saved-book-list");
 var savedBooks = [];
-
 // DATA
 
 // FUNCTIONS
@@ -92,16 +91,20 @@ function printGoogleResults(googleData) {
   googleResults.append(googleInfoCard);
 
   var saveBookBtn = document.createElement("button");
-  googleInfoCard.appendChild(saveBookBtn);
+  googleResults.appendChild(saveBookBtn);
+  saveBookBtn.setAttribute("id", "saved-button");
 
   saveBookBtn.addEventListener("click", function (event) {
     event.preventDefault();
     storeBooks();
-    renderBookList()
   });
   function storeBooks() {
     // check to see if "savedBooks" is in localStorage
-    savedBooks = getSavedBooks()
+    if (localStorage.getItem("savedBooks")) {
+      savedBooks = JSON.parse(localStorage.getItem("savedBooks"));
+    } else {
+      savedBooks = [];
+    }
     savedBooks.push({
       googleTitle,
       googleLink,
@@ -109,14 +112,6 @@ function printGoogleResults(googleData) {
     localStorage.setItem("savedBooks", JSON.stringify(savedBooks));
   }
   renderBookList();
-}
-
-function getSavedBooks() {
-  if (localStorage.getItem("savedBooks")) {
-    return JSON.parse(localStorage.getItem("savedBooks"));
-  } else {
-    return [];
-  }
 }
 
 function printLocResults(locData) {
@@ -160,28 +155,14 @@ function printLocResults(locData) {
 }
 
 function renderBookList() {
-  savedBooks = getSavedBooks();
   savedBookList.innerHTML = "";
-  for (var i = 0; i < savedBooks.length; i++) {
+  for (var i = 0; i < savedBooksContainer.length; i++) {
     var savedBook = savedBooks[i];
     var li = document.createElement("li");
-    var link = document.createElement("a");
-    link.textContent = savedBook.googleTitle;
-    link.setAttribute("href", savedBook.googleLink);
+    li.textContent = savedBook;
     li.setAttribute("data-index", i);
     var deleteBookBtn = document.createElement("button");
     deleteBookBtn.textContent = "Clear Book From List";
-    deleteBookBtn.addEventListener("click", function(event) {
-      event.preventDefault();
-      var element = event.target;
-      if (element.matches("button") === true) {
-        var index = element.parentElement.getAttribute("data-index");
-        savedBooks.splice(index, 1);
-        localStorage.setItem("savedBooks", JSON.stringify(savedBooks));
-        renderBookList();
-      }
-    }) 
-    li.appendChild(link);
     li.appendChild(deleteBookBtn);
     savedBookList.appendChild(li);
   }
