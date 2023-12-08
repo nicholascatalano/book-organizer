@@ -171,7 +171,7 @@ function renderBookList() {
     link.setAttribute("href", savedBook.googleLink);
     li.setAttribute("data-index", i);
     var deleteBookBtn = document.createElement("button");
-    deleteBookBtn.textContent = "Clear Book From List";
+    deleteBookBtn.textContent = "🗑️";
     deleteBookBtn.addEventListener("click", function (event) {
       event.preventDefault();
       var element = event.target;
