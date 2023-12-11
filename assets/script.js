@@ -54,13 +54,18 @@ function getLocApi() {
       //     printLocResults({ ...value });
       //   }, 200 * i);
       // }
+
+      // setInterval function to delay each print of a card to the page by 200ms
       var i = 0;
 
+      // uses globally defined interval variable
       fadeInInterval = setInterval(function () {
         if (i === locData.results.length) {
+          // clears interval once there are no results left
           return clearInterval(fadeInInterval);
         }
         var value = locData.results[i];
+        // then prints the results
         printLocResults(value);
         i++;
       }, 200);
