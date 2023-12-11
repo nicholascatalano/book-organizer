@@ -6,6 +6,7 @@ var searchInput = document.getElementById("search-input");
 var savedBooksContainer = document.getElementById("saved-books-container");
 var savedBookList = document.getElementById("saved-book-list");
 var savedBooks = [];
+var fadeInInterval;
 
 // DATA
 
@@ -44,10 +45,25 @@ function getLocApi() {
       if (!locData.results.length) {
         console.log("No results found.");
       } else searchResults.textContent = "";
+
       // else print the results to the page using the printLocResults() function;
-      for (var i = 0; i < 8; i++) {
-        printLocResults(locData.results[i]);
-      }
+      // for (var i = 0; i < 8; i++) {
+      //   var value = locData.results[i];
+      //   console.log("index", i, "value", value);
+      //   setTimeout(function () {
+      //     printLocResults({ ...value });
+      //   }, 200 * i);
+      // }
+      var i = 0;
+
+      fadeInInterval = setInterval(function () {
+        if (i === locData.results.length) {
+          return clearInterval(fadeInInterval);
+        }
+        var value = locData.results[i];
+        printLocResults(value);
+        i++;
+      }, 200);
     });
 }
 
@@ -127,6 +143,7 @@ function printLocResults(locData) {
   // variable to hold card which will house LOC results info
   var locInfoCard = document.createElement("div");
   locInfoCard.classList.add("mb-2", "mx-2", "p-2", "dynamic-card", "card");
+  locInfoCard.style.display = "none";
 
   // variable to hold body of the LOC results info
   var locInfoBody = document.createElement("div");
@@ -159,6 +176,9 @@ function printLocResults(locData) {
 
   // appends LOC info card to search results container
   searchResults.append(locInfoCard);
+
+  // jQuery function to fade in each card
+  $(locInfoCard).fadeIn(500);
 }
 
 function renderBookList() {
