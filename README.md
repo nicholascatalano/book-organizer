@@ -15,3 +15,12 @@ If you'd like to save that link, you can click the save button. And down the lin
 #### Screenshot
 
 ![Screenshot of webpage](/images/screenshot.png)
+
+#### Credits
+
+This project was created by the following individuals:
+
+- Nicholas Catalano: https://github.com/nicholascatalano
+- Brandon Orellana: https://github.com/ihyEve
+- Joseph D'Auria: https://github.com/jdauria97
+- Raul Nova: https://github.com/RaulN47
